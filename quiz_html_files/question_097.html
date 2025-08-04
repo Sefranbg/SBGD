@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Question 97 - Quiz du jeu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .reponses label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #resultat {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question">
+    97. Laquelle de ces propositions a débuté en premier ?
+  </div>
+
+  <form id="quizForm">
+    <div class="reponses">
+            <label><input type="radio" name="reponse" value="A"> A. Le Crétacé.</label>
+      <label><input type="radio" name="reponse" value="B"> B. Le Carbonifère.</label>
+      <label><input type="radio" name="reponse" value="C"> C. Le Jurassique.</label>
+    </div>
+    <button type="button" onclick="verifier()">Valider</button>
+  </form>
+
+  <div id="resultat"></div>
+
+  <script>
+    function verifier() {
+      const choix = document.querySelector('input[name="reponse"]:checked');
+      const resultat = document.getElementById("resultat");
+
+      if (!choix) {
+        resultat.innerText = "Veuillez sélectionner une réponse.";
+        resultat.style.color = "orange";
+        return;
+      }
+
+      if (choix.value === "B") {
+        resultat.innerText = "Bonne réponse ! Le Carbonifère.";
+        resultat.style.color = "green";
+      } else {
+        resultat.innerText = "Mauvaise réponse. La bonne réponse était : B. Le Carbonifère.";
+        resultat.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
